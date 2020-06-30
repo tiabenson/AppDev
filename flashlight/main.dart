@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
 //Created by Tia Benson
+
+import 'package:flutter/material.dart';
+import 'package:torch_compat/torch_compat.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'on/off switch',
+      title: 'flashlight',
       debugShowCheckedModeBanner: false,  //eliminates debug banner
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -34,12 +36,14 @@ class _HomepageState extends State<Homepage> {
       switch (toggle) {
         case true:
           {
+            TorchCompat.turnOff();
             toggle = false;
           }
           break;
 
         case false:
           {
+            TorchCompat.turnOn();
             toggle = true;
           }
           break;
