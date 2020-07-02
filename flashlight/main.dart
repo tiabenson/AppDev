@@ -1,4 +1,5 @@
 //Created by Tia Benson
+//App that turns on phone's flashlight
 
 import 'package:flutter/material.dart';
 import 'package:torch_compat/torch_compat.dart';
@@ -36,14 +37,14 @@ class _HomepageState extends State<Homepage> {
       switch (toggle) {
         case true:
           {
-            TorchCompat.turnOff();
+            TorchCompat.turnOn();
             toggle = false;
           }
           break;
 
         case false:
           {
-            TorchCompat.turnOn();
+            TorchCompat.turnOff();
             toggle = true;
           }
           break;
@@ -55,13 +56,13 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: toggle == true ? Colors.white : Colors.black, //background color
+        color: toggle == true ? Colors.black : Colors.white, //background color
         child: Center(
           child: FlatButton(
             child: Text(
-              toggle == true ? 'ON' : 'OFF', //determine text
+              toggle == true ? 'OFF' : 'ON', //determine text
               style: TextStyle(
-                  color: toggle == true ? Colors.green : Colors.white,
+                  color: toggle == true ? Colors.white : Colors.green,
                   fontSize: 45,
                   fontWeight: FontWeight.bold),
             ),
